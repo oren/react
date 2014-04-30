@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h1>Basic Example with JSX</h1>
+
+    <div id="container"></div>
+
+    <!-- The core React library -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/react/0.10.0/react.min.js"></script>
+    <!-- In-browser JSX transformer, remove when pre-compiling JSX. -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/react/0.10.0/JSXTransformer.js"></script>
+
+    <script type="text/jsx">
+      /**
+       * @jsx React.DOM
+       */
+      var ExampleApplication = React.createClass({
+        render: function() {
+          var elapsed = Math.round(this.props.elapsed  / 100);
+          var seconds = elapsed / 10 + (elapsed % 10 ? '' : '.0' );
+          var message =
+            'React has been successfully running for ' + seconds + ' seconds.';
+
+          return <p>{message}</p>;
+        }
+      });
+
+      var start = new Date().getTime();
+
+      setInterval(function() {
+        React.renderComponent(
+          <ExampleApplication elapsed={new Date().getTime() - start} />,
+          document.getElementById('container')
+        );
+      }, 50);
+    </script>
+  </body>
+</html>
