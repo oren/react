@@ -14,3 +14,4 @@
 * http://facebook.github.io/react/docs/thinking-in-react.html
 * https://github.com/andreypopp/react-quickstart
 * http://facebook.github.io/react/docs/getting-started.html
+* http://facebook.github.io/react/docs/tutorial.html
